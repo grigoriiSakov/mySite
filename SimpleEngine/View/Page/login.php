@@ -13,10 +13,12 @@ $html_form .= '<form method="post" action="/page/authorize/">';
 
 echo $html_form;
 ?>
-<script type="javascript" src=""http://<?=$_SERVER['HTTP_HOST'] ?>/JS/login.js""></script>
+
 <br>
 <br>
 <a href="/page/registration">Зарегистрироваться</a>
 <br>
 <br>
-<a href="/">на главную</a></p>'
+<a href="/">на главную</a>
+
+

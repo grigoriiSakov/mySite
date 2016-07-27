@@ -50,9 +50,10 @@
     <?}
 else{ ?>
     <h4>Вы должны войти, чтобы оставить комментарий</h4>
-    <a href="/page/login">Войти</a>
+    <a id="login" href="#">Войти</a>
     <?}?>
 
 
     </div>
 </section>
+<script type="text/javascript" src="http://<?=$_SERVER['HTTP_HOST'] ?>/JS/login.js"></script>
