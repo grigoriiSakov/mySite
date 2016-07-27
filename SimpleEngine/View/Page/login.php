@@ -2,7 +2,7 @@
 
 $m = $this->getUser();
 
-$html_form = '<p>Форма авторизации</p>';
+$html_form = '<h4>Форма авторизации</h4>';
 $html_form .= '<form method="post" action="/page/authorize/">';
     $html_form .= '<p>Логин <input type="text" name="login" value=""> </p>';
     $html_form .= '<p>Пароль <input type="password" name="password" value=""></p>';
@@ -11,14 +11,21 @@ $html_form .= '<form method="post" action="/page/authorize/">';
     $html_form .= '<p><input type="submit" name="authorize_me" value="Войти">' ;
     $html_form .= '</form>';
 
-echo $html_form;
+
 ?>
 
-<br>
-<br>
-<a href="/page/registration">Зарегистрироваться</a>
-<br>
-<br>
-<a href="/">на главную</a>
-
+<div class="popup">
+    <div class="popup_title">
+        Заголовок всплывающего окна <span class="closer">X</span>
+    </div>
+    <div class="popup_content">
+        <?= $html_form?>
+        <br>
+        <br>
+        <a href="/page/registration">Зарегистрироваться</a>
+        <br>
+        <br>
+        <a href="/">на главную</a>
+    </div>
+</div>
 

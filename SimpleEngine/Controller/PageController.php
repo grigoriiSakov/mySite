@@ -48,8 +48,7 @@ class PageController extends BasicController
     }
     public function actionLogin (){
 
-        $_SESSION['referer'] =  $_SERVER['HTTP_REFERER'];
-        echo $this -> render('login');
+        echo  $this -> render('login',array(),true );
     }
     public function actionAuthorize(){
        $authorized = $this ->user ->authorize();

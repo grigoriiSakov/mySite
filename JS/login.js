@@ -4,9 +4,19 @@
 
 if( $(document).ready(function () {
 
-        $('#login').bind("click", function () {
-            $.get("index.php",'page/login' , function (data) {
-             alert(data);
+        $('#login').click(function () {
+            $.get("/page/login",{} , function (data) {
+                $('.container').addClass("popup_overlay");
+                $(".login").html(data);
+                $('.popup,.popup_overlay').fadeIn(400); //показываем всплывающее окно
+                $('.closer,.popup_overlay').click(function(){
+                    $('.popup,.popup_overlay').fadeOut(400); //скрываем всплывающее окно
+                    $('.container').removeClass("popup_overlay").removeAttribute('style');
+
+                });
+
+
             })
         })
     }));
+

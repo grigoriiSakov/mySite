@@ -54,7 +54,10 @@ abstract class BasicController
             return $out;
         }
         else{
-            return json_encode($this->data['answer']);
+            if(file_exists($tpl = $_SERVER['DOCUMENT_ROOT'] . '/SimpleEngine/View/' . $this->getModelName() . '/' . $method . '.php')) {
+                $out = include_once($tpl);
+                return json_encode($out);
+            }
         }
     }
 }

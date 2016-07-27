@@ -49,11 +49,13 @@
     </form>
     <?}
 else{ ?>
-    <h4>Вы должны войти, чтобы оставить комментарий</h4>
-    <a id="login" href="#">Войти</a>
+    <div class="login_class"> <h4>Вы должны войти, чтобы оставить комментарий</h4>
+        <span id="login">Войти</span>
+    </div>
     <?}?>
 
 
     </div>
 </section>
+<div class="login"></div>
 <script type="text/javascript" src="http://<?=$_SERVER['HTTP_HOST'] ?>/JS/login.js"></script>
