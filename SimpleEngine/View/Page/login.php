@@ -2,8 +2,7 @@
 
 $m = $this->getUser();
 
-$html_form = '<h4>Форма авторизации</h4>';
-$html_form .= '<form method="post" action="/page/authorize/">';
+$html_form = '<form method="post" action="/page/authorize/">';
     $html_form .= '<p>Логин <input type="text" name="login" value=""> </p>';
     $html_form .= '<p>Пароль <input type="password" name="password" value=""></p>';
     $html_form .= '<input type="hidden" name="csrf" value="'.$m->getToken($m->getSalt()).'">';
@@ -16,7 +15,7 @@ $html_form .= '<form method="post" action="/page/authorize/">';
 
 <div class="popup">
     <div class="popup_title">
-        Заголовок всплывающего окна <span class="closer">X</span>
+        <h4>Форма авторизации <span class="closer">X</span></h4>
     </div>
     <div class="popup_content">
         <?= $html_form?>
