@@ -22,9 +22,12 @@ a:hover
 	text-decoration: underline;
 }
 
-input[type="text"]
+input[type="text"], input[type="password"]
 {
-	width: 500px;
+	position: absolute;
+	left: 200px;
+	width: 150px;
+	margin-right: 360px;
 }
 
 textarea
