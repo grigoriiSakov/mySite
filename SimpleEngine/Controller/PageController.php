@@ -68,10 +68,10 @@ class PageController extends BasicController
     {
         $reg =  $this->user->registration();
         if($reg['ok']){
-            echo $this->render('registration', array('reg' => true , 'error' => ''));
+            echo $this->render('registration', array('reg' => true , 'error' => ''),true);
         }
         else{
-           echo $this->render('registration', array('reg' => false, 'error' => $reg['error']));
+           echo $this->render('registration', array('reg' => false, 'error' => $reg['error']),true);
         }
     }
     public function actionLogout (){
