@@ -13,14 +13,14 @@ if( $(document).ready(function () {
             });
         }
 
-        $('#login').click(function () { // авторизация пользователя
+        $(document).on("click","#login",function () { // авторизация пользователя
             $.getJSON("/page/login",{} , function (data) {
                 $('.container').addClass("popup_overlay");
                 $(".login").html(data);
                 getWindow();
             })
         })
-        $(document).on('click','#registration',function () { // регистрация пользователя
+        $(document).on('click','#registration',function () { // выод формы регистрации пользователя
             $.getJSON('/page/registration', {}, function (data) {
                 $(".login").html(data);
                 getWindow();                
