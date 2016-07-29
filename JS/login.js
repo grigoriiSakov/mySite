@@ -9,7 +9,7 @@ if( $(document).ready(function () {
                 $('.container').addClass("popup_overlay");
                 $(".login").html(data);
                 $('.popup,.popup_overlay').fadeIn(400); //показываем всплывающее окно
-                $('.closer,.popup_overlay').click(function(){
+                $('.closer').click(function(){
                     $('.popup,.popup_overlay').fadeOut(400, function () {//скрываем всплывающее окно
                         $('.container').removeClass("popup_overlay").fadeIn(100);
 
@@ -19,6 +19,11 @@ if( $(document).ready(function () {
                 });
 
 
+            })
+        })
+        $(document).on('click','#registration',function () {
+            $.get('/page/registration', {}, function (data) {
+             alert(data)   ;
             })
         })
     }));

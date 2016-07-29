@@ -21,7 +21,7 @@ $html_form = '<form method="post" action="/page/authorize/">';
         <?= $html_form?>
         <br>
         <br>
-        <a href="/page/registration">Зарегистрироваться</a>
+        <input type="button" id="registration" value="Зарегистрироваться">
         <br>
         <br>
         <a href="/">на главную</a>

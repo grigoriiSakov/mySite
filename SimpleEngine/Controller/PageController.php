@@ -62,7 +62,7 @@ class PageController extends BasicController
         }
     }
     public function actionRegistration(){
-       echo $this -> render('registration', array('error' => '', 'reg' => false));
+       echo $this -> render('registration', array('error' => '', 'reg' => false), true);
     }
     public function actionAddRegistration()
     {
