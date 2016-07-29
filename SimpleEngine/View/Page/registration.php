@@ -6,20 +6,21 @@
 */?>
 
 
-<?php
-if ($reg){
-echo '<p> Спасибо за регистрацию, теперь вы можете <a href="/page/login">войти</a>';
-}
-else {
 
-echo '<p class=error>' . $error . '</p>';
-
-?>
     <div class="popup">
         <div class="popup_title">
             <h4>Регистрация  <span class="closer">X</span></h4>
         </div>
         <div class="popup_content">
+<?php
+if ($reg){
+    echo '<p> Спасибо за регистрацию, теперь вы можете <a href="/page/login">войти</a>';
+}
+else {
+
+    if($error) echo '<p class=error>' . $error . '</p>';
+
+?>
             <form method="post" action="/page/AddRegistration">
                 Имя: <input type="text" name="name" >
                 <br/> <br>
@@ -31,9 +32,9 @@ echo '<p class=error>' . $error . '</p>';
                 <input type="hidden" name="csrf" value=<?=$this->user->getToken($this->user->getSalt()) ?>
                 </form>
                 <br>
+                <?php } ?>
                 <a href="index.php">Главная</a>
         </div>
     </div>
 
 
-<?php } ?>
