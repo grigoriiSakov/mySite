@@ -21,40 +21,42 @@ abstract class BasicController
 
     public abstract function getModelName();
 
-    protected function render($method = "index",  $content = array(), $ajax = false){
-        if(!$ajax){
-            $head = $_SERVER['DOCUMENT_ROOT'] . '/SimpleEngine/View/Header.php';
-            $foot = $_SERVER['DOCUMENT_ROOT'] . '/SimpleEngine/View/Footer.php';
+    protected function render($method = "index",  $content = array(), $ajax = false)
+    {
+        $result = "";
+        $head = $_SERVER['DOCUMENT_ROOT'] . '/SimpleEngine/View/Header.php';
+        $foot = $_SERVER['DOCUMENT_ROOT'] . '/SimpleEngine/View/Footer.php';
 
+        if (!$ajax) {
             require_once $head;
-            
-               
+        }
 
-                           
-
-            if(file_exists($tpl = $_SERVER['DOCUMENT_ROOT'] . '/SimpleEngine/View/' . $this->getModelName() . '/' . $method . '.php')){
-                // Установка переменных для шаблона.
-                foreach ($content as $k => $v)
-                {
-                    $$k = $v;
-                }
-                ob_start();
-                include_once ($tpl);
-
-
-            }else{
-                echo '404 :: Can\'t find '.$this->getModelName() .' '.$method;
-
+        if (file_exists($tpl = $_SERVER['DOCUMENT_ROOT'] . '/SimpleEngine/View/' . $this->getModelName() . '/' . $method . '.php')) {
+            // Установка переменных для шаблона.
+            foreach ($content as $k => $v) {
+                $$k = $v;
             }
+            ob_start();
+            include_once($tpl);
+
+
+        } else {
+            echo '404 :: Can\'t find ' . $this->getModelName() . ' ' . $method;
+
+        }
+        if (!$ajax) {
             require_once $foot;
-            $out = ob_get_contents();
+            $result = ob_get_contents();
             ob_end_clean();
 
+        } else {
+            $result = ob_get_contents();
+            ob_end_clean();
 
-            return $out;
+            $result = json_encode($result);
+
         }
-        else{
-            return json_encode($this->data['answer']);
-        }
+        return $result;
     }
+
 }

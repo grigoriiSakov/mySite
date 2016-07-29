@@ -86,7 +86,7 @@ class User
     public function registration (){
         $result = [
             'ok'=>0,
-            'error' => ''
+            'error' => 'Представлена ошибочная форма'
         ];
         if($this->checkToken(RequestController::_post('csrf', 's'))){
             $password = RequestController::_post('password','s');

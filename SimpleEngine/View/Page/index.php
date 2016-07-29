@@ -5,7 +5,7 @@
 
 $name = $this -> getUser() ->getName();
 if(!empty($name)) echo '<a href="/page/logout">Выйти</a>' . "<br> Здраствуйте, $name";
-else echo '<a href="/page/login">Войти</a>';
+else echo ' <span id="login">Войти</span>';
 ?>
 <hr/>
 
@@ -17,8 +17,9 @@ foreach ($articles as $article){ ?>
         <header> <?=$article['title']?></header>
     </a>
     <?php if($article['img']) echo '<img src="http://' . $_SERVER['HTTP_HOST'] . '/img/' . $article['img']
-        . '" alt="' . $article['img'] . '" class = "all_img" width = "250px" heigt = "250px" >'; ?>
+        . '" alt="' . $article['img'] . '" class = "all_img" width = "350px" height = "250px" >'; ?>
     <article><?=$article['content'] ?></article>
 </section>
 <?php } ?>
-
+<div class="login"></div>
+<script type="text/javascript" src="http://<?=$_SERVER['HTTP_HOST'] ?>/JS/login.js"></script>

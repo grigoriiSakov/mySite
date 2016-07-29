@@ -48,8 +48,7 @@ class PageController extends BasicController
     }
     public function actionLogin (){
 
-        $_SESSION['referer'] =  $_SERVER['HTTP_REFERER'];
-        echo $this -> render('login');
+        echo  $this -> render('login',array(),true );
     }
     public function actionAuthorize(){
        $authorized = $this ->user ->authorize();
@@ -63,16 +62,16 @@ class PageController extends BasicController
         }
     }
     public function actionRegistration(){
-       echo $this -> render('registration', array('error' => '', 'reg' => false));
+       echo $this -> render('registration', array('error' => '', 'reg' => false), true);
     }
     public function actionAddRegistration()
     {
         $reg =  $this->user->registration();
         if($reg['ok']){
-            echo $this->render('registration', array('reg' => true , 'error' => ''));
+            echo $this->render('registration', array('reg' => true , 'error' => ''),true);
         }
         else{
-           echo $this->render('registration', array('reg' => false, 'error' => $reg['error']));
+           echo $this->render('registration', array('reg' => false, 'error' => $reg['error']),true);
         }
     }
     public function actionLogout (){
