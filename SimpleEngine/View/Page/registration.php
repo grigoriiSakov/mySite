@@ -14,7 +14,7 @@
         <div class="popup_content">
 <?php
 if ($reg){
-    echo '<p> Спасибо за регистрацию, теперь вы можете <a href="/page/login">войти</a>';
+    echo '<p> Спасибо за регистрацию, теперь вы можете <span id="login">войти</span>';
 }
 else {
 
@@ -33,6 +33,7 @@ else {
                 </form>
                 <br>
                 <?php } ?>
+                <br>
                 <a href="index.php">Главная</a>
         </div>
     </div>
