@@ -28,12 +28,21 @@ if( $(document).ready(function () {
         })
         
         $(document).on('click','#submit_registration',function () { // регистрация пользователя
-            $.post('/page/addRegistration', {}, function (data) {
-                alert(json(data));
-                //$(".login").html(data);
-                //getWindow();
+            $.post('/page/addRegistration',
+                {   "csrf":$("input[name='csrf']").val(),
+                    "login":$("input[name='login']").val(),
+                    "name":$("input[name='name']").val(),
+                    "email":$("input[name='email']").val(),
+                    "password":$("input[name='password']").val(),
+                    "password1":$("input[name='password1']").val()
 
-            })
+            },
+                function (data) {
+                $(".login").html(data);
+                getWindow();
+
+            },
+                'json')
 
         }) 
         
