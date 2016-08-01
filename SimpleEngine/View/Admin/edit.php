@@ -1,4 +1,4 @@
-<script type="text/javascript" src="<?=$_SERVER['HTTP_HOST'] ?>/JS/admin_panel.js"></script>
+<script type="text/javascript" src="http://<?=$_SERVER['HTTP_HOST'] ?>/JS/admin_panel.js"></script>
 <a href="/page/index">Главная</a> |
 <a href="/admin/index">Панель администратора</a>
 <hr/>
