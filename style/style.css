@@ -11,14 +11,14 @@ body
 	margin: 0 auto;
 	width: 960px;
 }
-a 
+a,  #login
 {
 	color: #00f;
 	text-decoration: none;
 }
 
-a:hover 
-{
+a:hover,  #login:focus
+		   {
 	text-decoration: underline;
 }
 
@@ -45,6 +45,7 @@ section{
 	clear: both;
 }
 section article{
+	text-align: justify;
 	padding-top: 25px;
 }
 .error{
