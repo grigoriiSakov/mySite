@@ -1,8 +1,20 @@
-
+<script type="text/javascript" src="<?=$_SERVER['HTTP_HOST'] ?>/JS/admin_panel.js"></script>
 <a href="/page/index">Главная</a> |
 <a href="/admin/index">Панель администратора</a>
 <hr/>
 <h1>Редактирование статьи</h1>
+<br>
+<!--ПАНЕЛЬ ББ КОДОВ-->
+<span id = "tag_b" style="cursor:pointer;">[b][/b]</span>
+&nbsp;&nbsp;
+<span id = "tag_a" style="cursor:pointer;">[a][/a]</span>
+&nbsp;&nbsp;
+<span id = "tag_img" style="cursor:pointer;">[img]</span>
+&nbsp;&nbsp;
+<span id = "tag_end" style="cursor:pointer;">[end]</span>
+<hr>
+<!--ПАНЕЛЬ ББ КОДОВ-->
+<br>
 
 <form class="form-group" method="post" action="/admin/updateArticle">
     Название:
