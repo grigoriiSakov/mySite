@@ -35,3 +35,20 @@
 <input class="btn btn-primary" type="submit" name= "save" value="Сохранить" />
 <input class="btn btn-danger" type="submit" name=" delete" value="Удалить" />
 </form>
+
+<!--ФОРМА [a][/a]-->
+<div class="window_tags" id="window_tags_a" style="display:none;">
+    <span class = "closer">X</span> <br>
+        <div class="input">
+        <input id='input_link_a'  type='text' value='Введите адрес ссылки'/>
+        <br>
+        <br>
+        <input id='input_text_a'  type='text' value='Введите текст ссылки'/>
+        <br>
+        <br>
+        <input type="button" id='window_supmit' value="Создать">
+
+
+    </div>
+</div>
+<!--ФОРМА [a][/a]-->
