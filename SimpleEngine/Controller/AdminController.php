@@ -81,6 +81,28 @@ class AdminController extends PageController
         }
 
     }
+    public function actionAddImg(){
+
+// Здесь нужно сделать все проверки передаваемых файлов и вывести ошибки если нужно
+
+// Переменная ответа
+        $data = array();
+        $error = false;
+            $files = array();
+            // переместим файлы из временной директории в указанную
+            foreach( $_FILES as $file ){
+                if(false ){
+                    $files[] =$file['name'];
+                }
+                else{
+                    $error = true;
+                }
+            }
+
+            $data = $error ? array('error_load' => 'Ошибка загрузки файлов.') : array('name' => $files, "host" => "mysite2.dev", 'error_load' =>false );
+
+            echo json_encode( $data );
+    }
     public function getModelName()
     {
         return "Admin";
