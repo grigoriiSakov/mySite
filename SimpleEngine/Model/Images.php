@@ -27,6 +27,49 @@ class Images
         }
         return self::$instance;
     }
+    public function addImage (){
+        $file='';
+        $result = array(
+            'ok' => false,
+            'error' => '',
+            "file_name" => ''
+        );
+        foreach ($_FILES as $val){
+            $file = $val;
+        }
+        if(!empty($file['name'])){ // если передан не пустой файл
+            if($file['size']<10485760){ // не больше 10 мб
+                if(explode('/',$file['type'])[0] == 'image') { // картинка
+                    if (!file_exists($_SERVER['DOCUMENT_ROOT'] . "/img/" . $file['name'])) { // файла стаким именем нет в папке изображений
+                       // добавляем в папку
+                       if($this -> saveFile($file)){
+                           $result['ok'] = true;
+                           $result['file_name'] = $file['name'];
+
+
+                       }
+                        else{
+                            $result['error'] = 'ошибка загрузки файла';
+                        }
+                   }
+                    else{
+                        $result['error'] = "файл с таким именем уже существует";
+                    }
+                }
+                else{
+                    $result['error'] = "Допусимы только изображения";
+                }
+            }
+              else{
+                  $result['error']= "Файл должен быть не более 10 Mб";
+              }
+
+        }
+        else{
+           $result['error'] = 'Не выбран файл';
+        }
+        return $result;
+    }
 
     public function reSize ($name, $width, $height)
     {
@@ -75,6 +118,15 @@ class Images
         } else {
             return imagepng($thumb, $save);//Сохраняет JPEG/PNG/GIF изображение
         }
+    }
+
+    protected  function saveFile($file)
+    {
+        $result = false;
+        if (copy($file['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . '/img/' . $file['name'])) {
+            $result = true;
+        }
+        return $result;
     }
 
 }
