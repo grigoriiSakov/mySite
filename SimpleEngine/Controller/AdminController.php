@@ -5,7 +5,7 @@ namespace SimpleEngine\Controller;
 use SimpleEngine\Model\Page;
 use SimpleEngine\Model\Comment;
 use SimpleEngine\Model\User;
-
+use SimpleEngine\Model\Images;
 class AdminController extends PageController
 {
     public function __construct()
@@ -83,25 +83,21 @@ class AdminController extends PageController
     }
     public function actionAddImg(){
 
-// Здесь нужно сделать все проверки передаваемых файлов и вывести ошибки если нужно
+        if($this->user->isAdmin()){
+            $answer = Images::instance()->addImage();
 
-// Переменная ответа
-        $data = array();
-        $error = false;
-            $files = array();
-            // переместим файлы из временной директории в указанную
-            foreach( $_FILES as $file ){
-                if(false ){
-                    $files[] =$file['name'];
-                }
-                else{
-                    $error = true;
-                }
-            }
-
-            $data = $error ? array('error_load' => 'Ошибка загрузки файлов.') : array('name' => $files, "host" => "mysite2.dev", 'error_load' =>false );
-
+        if($answer['ok'] == true){
+            $data = array('name' => $answer['file_name'], 'host' => $_SERVER['HTTP_HOST'], 'error_load' => false);
+        }
+        else{
+            $data = array('error_load' => $answer['error']);
+        }
             echo json_encode( $data );
+        }
+        else{
+            echo $this->render('error');
+        }
+
     }
     public function getModelName()
     {
