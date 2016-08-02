@@ -16,7 +16,7 @@
 <!--ПАНЕЛЬ ББ КОДОВ-->
 <br>
 
-<form class="form-group" method="post" action="/admin/updateArticle">
+<form id="admin_form" method="post" action="/admin/updateArticle">
     Название:
     <br/>
     <input type="text" name="title" value="<?=$article['title']?>" />
@@ -26,8 +26,7 @@
     <br/>
     <textarea name="content"><?=$article['content']?></textarea>
 <br/>
-    <input type="text" name="file"value="<?=$article['img']?>" />
-    <input type="hidden" name="id_article" value="<?=$article['id_article']?>">
+     <input type="hidden" name="id_article" value="<?=$article['id_article']?>">
     <input type="hidden" name="csrf" value="<?=$this->user->getToken($this->user->getSalt())?>">
     <br>
 
