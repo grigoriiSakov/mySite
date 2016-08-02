@@ -52,3 +52,17 @@
     </div>
 </div>
 <!--ФОРМА [a][/a]-->
+<!--ФОРМА [img]-->
+<div class="window_tags" id="window_tags_img" style="display:none;">
+    <span class = "closer">X</span> <br>
+    <div class="input">
+        <input id= "file_img" name='file_img' style='width:220px;' type='file'/>
+        <input type="hidden" name="csrf" value="<?=$this->user->getToken($this->user->getSalt())?>">
+        <br>
+        <br>
+        <input id="add_img" name="add_img" type="button" value="Добавить">
+
+
+    </div>
+</div>
+<!--ФОРМА [img]-->
