@@ -95,7 +95,7 @@ if($(document).ready(function () {
                                 text = $("textarea[name='content']").val();
                             }
                             var out =  text + "[img src='http://" +respond.host +"/img/"+respond.name+"'" +
-                        "alt='" + respond.mame +"']";
+                        "alt='" + respond.name +"']";
                             addBbcode(text,out);
                             $('.popup').fadeOut(400);//Закрываю всплывающее окно
                         }
