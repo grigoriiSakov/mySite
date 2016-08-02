@@ -7,7 +7,7 @@ $html_form = '<form method="post" action="/page/authorize/">';
     $html_form .= '<p>Пароль <input type="password" name="password" value=""></p>';
     $html_form .= '<input type="hidden" name="csrf" value="'.$m->getToken($m->getSalt()).'">';
     $html_form .= '<p>Запомнить <input type="checkbox" name="memory_my" value="1"></p>';
-    $html_form .= '<p><input type="submit" name="authorize_me" value="Войти">' ;
+    $html_form .= '<p><input class="btn btn-primary" type="submit" name="authorize_me" value="Войти">' ;
     $html_form .= '</form>';
 
 
@@ -21,7 +21,7 @@ $html_form = '<form method="post" action="/page/authorize/">';
         <?= $html_form?>
         <br>
         <br>
-        <input type="button" id="registration" value="Зарегистрироваться">
+        <input class="btn btn-primary" type="button" id="registration" value="Зарегистрироваться">
         <br>
         <br>
         <a href="/">на главную</a>

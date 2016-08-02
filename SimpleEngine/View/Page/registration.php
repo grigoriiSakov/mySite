@@ -28,7 +28,7 @@ else {
                 E-mail: <input type="text" name="email" /><br/> <br>
                 Пароль: <input type="password" name="password" /><br/> <br>
                 Повторите пароль: <input type="password" name="password1" /><br/> <br>
-                <input id="submit_registration" type="button" value="Зарегистрироваться"/>
+                <input id="submit_registration" class="btn btn-primary" type="button" value="Зарегистрироваться"/>
                 <input type="hidden" name="csrf" value=<?=$this->user->getToken($this->user->getSalt()) ?>
                 </form>
                 <br>
