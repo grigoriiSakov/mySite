@@ -92,3 +92,10 @@ section article{
 	float: right;
 	cursor: pointer;
 }
+
+#admin_form input[type = "text"]{
+	width: 250px;
+	position: inherit;
+	display: inline-block;
+
+}
