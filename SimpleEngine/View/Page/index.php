@@ -16,8 +16,7 @@ foreach ($articles as $article){ ?>
     <a href="/page/read/<?=$article['id_article']?>">
         <header> <?=$article['title']?></header>
     </a>
-    <?php if($article['img']) echo '<img src="http://' . $_SERVER['HTTP_HOST'] . '/img/' . $article['img']
-        . '" alt="' . $article['img'] . '" class = "all_img" width = "350px" height = "250px" >'; ?>
+
     <article><?=$article['content'] ?></article>
 </section>
 <?php } ?>
