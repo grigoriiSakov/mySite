@@ -53,12 +53,13 @@ section article{
 .error{
 	color: red;
 }
-.all_img{
+.index_page img{
 	float: left;
 	padding: 25px;
+	width: 350px;
 }
 
-.one_img{
+.one_page img{
 	text-align: center;
 	margin: 0 auto;
 	padding: 25px 0;

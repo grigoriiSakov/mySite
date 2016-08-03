@@ -55,15 +55,15 @@ class Page
     //
     // Конкретная статья
     //
-    public function getPage($id_article)
+    public function getPage($id_article, $to_edit=false)
     {
         // Запрос.
         $t = "SELECT * 
 			  FROM article 
 			  WHERE id_article = '%d'";
-
         $query = sprintf($t, $id_article);
         $result = $this->msql->queryFetchRowAssoc($query);
+        if(!$to_edit) $result['content'] = $this->addBb($result['content'],false);
         return $result;
     }
 
@@ -155,28 +155,30 @@ class Page
 
         return $result;
     }
-    protected function addBb($var) {
+    protected function addBb($var, $preview = true) {
 
         $search = array(
             '/\[b\](.*?)\[\/b\]/is',
-            '/\[i\](.*?)\[\/i\]/is',
-            '/\[u\](.*?)\[\/u\]/is',
             '/\[img (\S*)\]/is',
            '/\[a url=(.*)\](.*)\[\/a\]/is'
         );
 
         $replace = array(
             '<strong>$1</strong>',
-            '<em>$1</em>',
-            '<u>$1</u>',
             '<img src=$1 />',
             '<a href=$1>$2</a>'
         );
 
 
         $var =  preg_replace ($search, $replace, $var);
+        if($preview) {
+            $var = explode('[end]',$var)[0];
+        }
+        else{
 
-        return($var);
+            $var = str_replace('[end]',"", $var);
+        }
+        return(nl2br($var));
     }
     // Короткое описание статьи
 //

@@ -11,13 +11,13 @@ else echo ' <span id="login">Войти</span>';
 
 <?php
 foreach ($articles as $article){ ?>
-<section>
+<section class="index_page">
 
     <a href="/page/read/<?=$article['id_article']?>">
         <header> <?=$article['title']?></header>
     </a>
 
-    <article><?= explode('[end]', $article['content'])[0] ?></article>
+    <article><?=$article['content'] ?></article>
 </section>
 <?php } ?>
 <div class="login"></div>

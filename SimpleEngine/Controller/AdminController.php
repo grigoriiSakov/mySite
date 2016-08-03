@@ -28,7 +28,7 @@ class AdminController extends PageController
 
     public function actionEdit($id_article){
         if($this->getUser()->isAdmin()){
-            $article = $this->model->getPage($id_article);
+            $article = $this->model->getPage($id_article, true);
 
             echo $this->render("edit", array('article' => $article));
         }

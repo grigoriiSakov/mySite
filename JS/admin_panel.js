@@ -94,7 +94,7 @@ if($(document).ready(function () {
                             if (typeof text === "undefined") {
                                 text = $("textarea[name='content']").val();
                             }
-                            var out =  text + "[img src='http://" +respond.host +"/img/"+respond.name+"'" +
+                            var out =  text + "[img 'http://" +respond.host +"/img/"+respond.name+"'" +
                         "alt='" + respond.name +"']";
                             addBbcode(text,out);
                             $('.popup').fadeOut(400);//Закрываю всплывающее окно

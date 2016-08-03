@@ -9,9 +9,7 @@
 <section>
 
     <header> <?=$article['title']?> </header>
-    <?php if($article['img']) echo '<img src="http://'. $_SERVER['HTTP_HOST'] . '/img/' . $article['img']
-        . '" alt="' . $article['img'] . '" class = "one_img">'; ?>
-    <article><?=$article['content'] ?></article>
+    <article class="one_page"><?=$article['content'] ?></article>
     <br>
     <section class=comment>
         <h3>Комментарии</h3>
