@@ -30,11 +30,7 @@ class PageController extends BasicController
     // Выводит все статьи на главной
     public function actionIndex(){
         $articles = $this ->model->allPage();
-    foreach ($articles as $k => $article ){
-    $articles[$k]['content'] = $this -> model->articlesIntro($article,400);
-       
-    }
-        echo $this->render("index", array('articles'=> $articles));
+         echo $this->render("index", array('articles'=> $articles));
     }
     // Выводит одну статью и комментарии кней
     public function actionRead($id_article){
