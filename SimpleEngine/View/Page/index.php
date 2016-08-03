@@ -17,7 +17,7 @@ foreach ($articles as $article){ ?>
         <header> <?=$article['title']?></header>
     </a>
 
-    <article><?=$article['content'] ?></article>
+    <article><?= explode('[end]', $article['content'])[0] ?></article>
 </section>
 <?php } ?>
 <div class="login"></div>
