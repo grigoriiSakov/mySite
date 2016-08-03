@@ -21,4 +21,5 @@ foreach ($articles as $article){ ?>
 </section>
 <?php } ?>
 <div class="login"></div>
+
 <script type="text/javascript" src="http://<?=$_SERVER['HTTP_HOST'] ?>/JS/login.js"></script>
