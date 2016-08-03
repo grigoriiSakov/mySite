@@ -41,11 +41,15 @@ class Page
     //
     public function allPage()
     {
+        $all_page = array();
         $query = "SELECT * 
 				  FROM article 
 				  ORDER BY id_article DESC";
-
-        return $this->msql ->queryFetchAllAssoc($query);
+        $all_page=$this->msql ->queryFetchAllAssoc($query);
+        foreach ($all_page as $key => $page){
+            $all_page[$key]['content'] = $this->addBb($page['content']);
+        }
+        return $all_page;
     }
 
     //
@@ -151,7 +155,29 @@ class Page
 
         return $result;
     }
+    protected function addBb($var) {
 
+        $search = array(
+            '/\[b\](.*?)\[\/b\]/is',
+            '/\[i\](.*?)\[\/i\]/is',
+            '/\[u\](.*?)\[\/u\]/is',
+            '/\[img (\S*)\]/is',
+           '/\[a url=(.*)\](.*)\[\/a\]/is'
+        );
+
+        $replace = array(
+            '<strong>$1</strong>',
+            '<em>$1</em>',
+            '<u>$1</u>',
+            '<img src=$1 />',
+            '<a href=$1>$2</a>'
+        );
+
+
+        $var =  preg_replace ($search, $replace, $var);
+
+        return($var);
+    }
     // Короткое описание статьи
 //
     static  public  function articlesIntro($article, $col)
